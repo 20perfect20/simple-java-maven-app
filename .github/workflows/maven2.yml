@@ -49,3 +49,6 @@ jobs:
     -
       name: Version Up
       run: mvn validate -DbumpPatch
+     
+    - uses: stefanzweifel/git-auto-commit-action@v4
+
