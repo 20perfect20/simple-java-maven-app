@@ -29,7 +29,7 @@ jobs:
 #        cache: maven
     - name: Set tagging value
       id: step_one
-      run: echo "GITHUB_TAG=$(${{ secrets.DOCKERHUB_USERNAME }}/simple-java:$(cat pom.xml | grep version | head -1 | awk -F'[><]' '{print $3}'))" >> $GITHUB_ENV
+      run: echo "GITHUB_TAG=$(echo ${{ secrets.DOCKERHUB_USERNAME }}/simple-java:$(cat pom.xml | grep version | head -1 | awk -F'[><]' '{print $3}'))" >> $GITHUB_ENV
     - name: Print
       run: echo $GITHUB_TAG      
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
