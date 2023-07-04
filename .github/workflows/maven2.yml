@@ -29,7 +29,7 @@ jobs:
 #        cache: maven
     - name: Set tagging value
       id: step_one
-      run: echo "TAG=$(echo avivlevari/simple-java-$(pom.xml | grep version | head -1 | awk -F'[><]' '{print $3}'))" >> $GITHUB_ENV
+      run: echo "TAG=$(echo avivlevari/simple-java-$(cat pom.xml | grep version | head -1 | awk -F'[><]' '{print $3}'))" >> $GITHUB_ENV
         
 #    - name: Build with Docker
 #      run: sudo docker build -t ${{ env.tag }} .        
