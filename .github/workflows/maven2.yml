@@ -55,4 +55,4 @@ jobs:
       run: mvn validate -DbumpPatch
      
     - uses: stefanzweifel/git-auto-commit-action@v4
-
+#
