@@ -12,9 +12,9 @@ RUN mvn clean package
 # Stage 2.
 FROM openjdk:11-jre-slim
 
-COPY --from=build app/target/*.jar .
+COPY --from=build app/target/*.jar app.jar
 
-CMD ["java", "-jar", "*.jar"]
+CMD ["java", "-jar", "app.jar"]
 
 
 
