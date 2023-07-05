@@ -69,7 +69,10 @@ jobs:
         tags: ${{ env.GITHUB_TAG }}
         
     
-     
+    - name: Set git author
+      run: |
+        git config user.name 'github actions'
+        git config user.email 'github-actions@users.noreply.github.com' 
     - uses: stefanzweifel/git-auto-commit-action@v4
      
      
@@ -82,10 +85,7 @@ jobs:
  #       author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
  #       branch: master
     
-    - name: Set git author
-      run: |
-        git config user.name 'github actions'
-        git config user.email 'github-actions@users.noreply.github.com'
+    
     - name: Create PR.
       if: success()
       uses: repo-sync/pull-request@v2
