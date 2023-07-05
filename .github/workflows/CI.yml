@@ -72,13 +72,23 @@ jobs:
      
     - uses: stefanzweifel/git-auto-commit-action@v4
      
-    - name: Create PR.
-      if: success()
-      uses: repo-sync/pull-request@v2
+     
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
       with:
-        destination_branch: "master"
-        pr_title: "CI updates"
-        pr_body: "Updates from CI"
-        github_token: ${{ secrets.GIT_TOKEN }}
-        pr_assignee: "github_actions"
+        token: ${{ secrets.GIT_TOKEN }}
+        commit-message: Update Test
+        committer: GitHub <noreply@github.com>
+        author: github actions
+        branch: master
+          
+#    - name: Create PR.
+#      if: success()
+#      uses: repo-sync/pull-request@v2
+#      with:
+#        destination_branch: "master"
+#        pr_title: "CI updates"
+#        pr_body: "Updates from CI"
+#        github_token: ${{ secrets.GIT_TOKEN }}
+#        pr_assignee: "github_actions"
         
