@@ -79,7 +79,7 @@ jobs:
         token: ${{ secrets.GIT_TOKEN }}
         commit-message: Update Test
         committer: GitHub <noreply@github.com>
-        author: github actions
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         branch: master
           
 #    - name: Create PR.
