@@ -80,5 +80,6 @@ jobs:
         pr_title: "CI updates"
         pr_body: "Updates from CI"
         github_token: ${{ secrets.GIT_TOKEN }}
+        pr_assignee: "github_actions"
         
 #
