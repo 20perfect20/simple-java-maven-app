@@ -10,7 +10,7 @@ jobs:
   build:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-
+    needs: Java-CI
     steps:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.10
