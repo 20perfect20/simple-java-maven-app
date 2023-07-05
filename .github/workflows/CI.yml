@@ -76,7 +76,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
-        token: ${{ secrets.GIT_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: Update Test
         committer: GitHub <noreply@github.com>
         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
