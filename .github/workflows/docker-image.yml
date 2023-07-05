@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ${{ secrets.DEPLOY_USERNAME }}
+        key: ${{ secrets.DEPLOY_ID_RSA }}
+        script: |
+          sudo apt update
+          sudo apt install docker.io -y
+          sudo docker pull ${{ env.GITHUB_TAG }}
+          sudo docker run -d ${{ env.GITHUB_TAG }}
