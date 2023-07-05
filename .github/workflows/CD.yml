@@ -1,15 +1,14 @@
 name: java CD
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    types: [ closed ]
 
 jobs:
 
   build:
-
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -24,3 +23,4 @@ jobs:
           sudo apt install docker.io -y
           sudo docker pull ${{ env.GITHUB_TAG }}
           sudo docker run -d ${{ env.GITHUB_TAG }}
+
